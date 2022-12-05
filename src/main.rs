@@ -13,8 +13,10 @@
 // Explanation: Since the list has two middle nodes with values 3 and 4, we return the second one.
 
 pub fn find_the_middle(head: Vec<i32>) -> Vec<i32> {
-  println!("{:?}", head);
-  head
+  let len: usize = head.len();
+  let initial: usize = len / 2;
+  let result: &[i32] = &head[initial..len];
+  result.to_vec()
 }
 
 fn main() {
@@ -27,10 +29,18 @@ mod tests {
   use super::*;
 
   #[test]
-  fn return_from_the_middle_value() {
-    let head: Vec<i32> = vec![1, 2, 3, 4, 5];
-    let clone: Vec<i32> = head.clone();
+  fn return_from_the_middle_even_vector() {
+    let head: Vec<i32> = vec![1, 2, 3, 4, 5, 6];
     let result: Vec<i32> = find_the_middle(head);
-    assert_eq!(find_the_middle(clone), result);
+    let clone: Vec<i32> = vec![4, 5, 6];
+    assert_eq!(result, clone);
+  }
+
+  #[test]
+  fn return_from_the_middle_odd_elements() {
+    let head: Vec<i32> = vec![1, 2, 3, 4, 5];
+    let result: Vec<i32> = find_the_middle(head);
+    let clone: Vec<i32> = vec![3, 4, 5];
+    assert_eq!(result, clone);
   }
 } /* tests */
