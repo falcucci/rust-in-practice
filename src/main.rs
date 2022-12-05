@@ -43,4 +43,12 @@ mod tests {
     let clone: Vec<i32> = vec![3, 4, 5];
     assert_eq!(result, clone);
   }
+
+  #[test]
+  fn return_from_the_middle_even_bigger_vector() {
+    let head: Vec<i32> = vec![1, 2, 3, 4, 5, 6, 7, 8];
+    let result: Vec<i32> = find_the_middle(head);
+    let clone: Vec<i32> = vec![5, 6, 7, 8];
+    assert_eq!(result, clone);
+  }
 } /* tests */
