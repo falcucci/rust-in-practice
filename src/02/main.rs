@@ -47,14 +47,35 @@ fn sum_reverse_linked_list(first_list: Vec<i32>, second_list: Vec<i32>) -> Vec<u
 }
 
 fn main() {
-  let first_list: Vec<i32> = vec![2, 4, 3];
-  let second_list: Vec<i32> = vec![5, 6, 4];
-  let result = sum_reverse_linked_list(first_list, second_list);
+  let l1: Vec<i32> = vec![2, 4, 3];
+  let l2: Vec<i32> = vec![5, 6, 4];
+  let result: Vec<u32> = sum_reverse_linked_list(l1, l2);
   println!("{:?}", result);
 }
 
 #[cfg(test)]
-mod Tests {
+mod tests {
+  use super::sum_reverse_linked_list;
+
   #[test]
-  fn sum_two_test() {}
+  fn sum_two_case_one() {
+    // Input: l1 = [2,4,3], l2 = [5,6,4]
+    // Output: [7,0,8]
+    // Explanation: 342 + 465 = 807.
+    let l1: Vec<i32> = vec![2, 4, 3];
+    let l2: Vec<i32> = vec![5, 6, 4];
+    let result: Vec<u32> = vec![7, 0, 8];
+    assert_eq!(result, sum_reverse_linked_list(l1, l2));
+  }
+
+  #[test]
+  fn sum_two_case_two() {
+    // Example 2:
+    // Input: l1 = [0], l2 = [0]
+    // Output: [0]
+    let l1: Vec<i32> = vec![0];
+    let l2: Vec<i32> = vec![0];
+    let result: Vec<u32> = vec![0];
+    assert_eq!(result, sum_reverse_linked_list(l1, l2));
+  }
 } /* Tests */
