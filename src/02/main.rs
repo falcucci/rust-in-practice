@@ -24,8 +24,8 @@ fn from_string_to_int(stringified: String) -> u32 {
 }
 
 fn sum_reverse_linked_list(first_list: Vec<i32>, second_list: Vec<i32>) -> Vec<u32> {
-  let mut first_list_clone = first_list.clone();
-  let mut second_list_clone = second_list.clone();
+  let mut first_list_clone: Vec<i32> = first_list.clone();
+  let mut second_list_clone: Vec<i32> = second_list.clone();
 
   first_list_clone.reverse();
   second_list_clone.reverse();
