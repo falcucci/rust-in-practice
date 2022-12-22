@@ -31,11 +31,11 @@ impl Solution {
     let full: Vec<i32> = merge_vec(_l1, _l2);
     let len: usize = full.len();
     let mid: usize = len / 2;
-    if len % 2 != 0 {
-      return full[mid] as f64;
-    }
     let mid_s: i32 = full[mid - 1] + full[mid];
-    mid_s as f64 / 2.0
+    match len % 2 {
+      0 => mid_s as f64 / 2.0,
+      _ => full[mid] as f64,
+    }
   }
 }
 
