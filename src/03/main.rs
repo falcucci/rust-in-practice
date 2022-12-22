@@ -26,12 +26,6 @@
 
 struct Solution {}
 
-fn merge_vec(vec1: Vec<i32>, vec2: Vec<i32>) -> Vec<i32> {
-  let mut full: Vec<i32> = vec1;
-  full.extend(vec2);
-  full.sort();
-}
-
 impl Solution {
   pub fn find_median_sorted_arrays(_l1: Vec<i32>, _l2: Vec<i32>) -> f64 {
     let full: Vec<i32> = merge_vec(_l1, _l2);
@@ -51,6 +45,13 @@ fn main() {
   let l2: Vec<i32> = vec![2];
   let result: f64 = Solution::find_median_sorted_arrays(l1, l2);
   println!("result: {}", result);
+}
+
+fn merge_vec(vec1: Vec<i32>, vec2: Vec<i32>) -> Vec<i32> {
+  let mut full: Vec<i32> = vec1;
+  full.extend(vec2);
+  full.sort();
+  full
 }
 
 #[cfg(test)]
