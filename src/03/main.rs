@@ -3,8 +3,6 @@
 //
 // The overall run time complexity should be O(log (m+n)).
 //
-//
-//
 // Example 1:
 //
 // Input: nums1 = [1,3], nums2 = [2]
@@ -28,14 +26,42 @@
 
 struct Solution {}
 
+fn merge_vec(vec1: Vec<i32>, vec2: Vec<i32>) -> Vec<i32> {
+  let mut full: Vec<i32> = vec1;
+  full.extend(vec2);
+  full.sort();
+}
+
 impl Solution {
   pub fn find_median_sorted_arrays(_l1: Vec<i32>, _l2: Vec<i32>) -> f64 {
-    return 100.0;
+    let full: Vec<i32> = merge_vec(_l1, _l2);
+    let len: usize = full.len();
+    let mid: usize = len / 2;
+    let mid_s: i32 = full[mid - 1] + full[mid];
+    let rest: i32 = mid_s % 2;
+    match rest {
+      0 => mid_s as f64 / 2.0,
+      _ => full[mid] as f64,
+    }
   }
 }
 
 fn main() {
-  let l1: Vec<i32> = vec![2, 4, 3];
-  let l2: Vec<i32> = vec![5, 6, 4];
-  Solution::find_median_sorted_arrays(l1, l2);
+  let l1: Vec<i32> = vec![1, 3];
+  let l2: Vec<i32> = vec![2];
+  let result: f64 = Solution::find_median_sorted_arrays(l1, l2);
+  println!("result: {}", result);
+}
+
+#[cfg(test)]
+mod tests {
+  use super::*;
+
+  #[test]
+  fn first_scenario_passing_odd_merged_vectors() {
+    let l1: Vec<i32> = vec![1, 3];
+    let l2: Vec<i32> = vec![2];
+    let result: f64 = Solution::find_median_sorted_arrays(l1, l2);
+    assert_eq!(result, 2.0);
+  }
 }
