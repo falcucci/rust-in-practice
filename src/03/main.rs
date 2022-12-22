@@ -40,10 +40,9 @@ impl Solution {
 }
 
 fn main() {
-  let l1: Vec<i32> = vec![1, 2];
-  let l2: Vec<i32> = vec![3, 4];
-  let result = Solution::find_median_sorted_arrays(l1, l2);
-  println!("result: {}", result);
+  let l1: Vec<i32> = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  let l2: Vec<i32> = vec![11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21];
+  Solution::find_median_sorted_arrays(l1, l2);
 }
 
 fn merge_vec(vec1: Vec<i32>, vec2: Vec<i32>) -> Vec<i32> {
@@ -79,5 +78,21 @@ mod tests {
     let l2: Vec<i32> = vec![11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
     let result: f64 = Solution::find_median_sorted_arrays(l1, l2);
     assert_eq!(result, 10.5);
+  }
+
+  #[test]
+  fn fourth_scenario_passing_odd_merged_vectors() {
+    let l1: Vec<i32> = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    let l2: Vec<i32> = vec![11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21];
+    let result: f64 = Solution::find_median_sorted_arrays(l1, l2);
+    assert_eq!(result, 11.0);
+  }
+
+  #[test]
+  fn fifth_scenario_passing_even_merged_vectors() {
+    let l1: Vec<i32> = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    let l2: Vec<i32> = vec![11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22];
+    let result: f64 = Solution::find_median_sorted_arrays(l1, l2);
+    assert_eq!(result, 11.5);
   }
 }
