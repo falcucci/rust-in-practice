@@ -103,4 +103,6 @@ mod tests {
     let result: f64 = Solution::find_median_sorted_arrays(l1, l2);
     assert_eq!(result, 12.0);
   }
+
+  #[test]
 }
