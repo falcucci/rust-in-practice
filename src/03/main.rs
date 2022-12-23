@@ -95,4 +95,12 @@ mod tests {
     let result: f64 = Solution::find_median_sorted_arrays(l1, l2);
     assert_eq!(result, 11.5);
   }
+
+  #[test]
+  fn sixth_scenario_passing_even_merged_vectors() {
+    let l1: Vec<i32> = vec![1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    let l2: Vec<i32> = vec![11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23];
+    let result: f64 = Solution::find_median_sorted_arrays(l1, l2);
+    assert_eq!(result, 12.0);
+  }
 }
