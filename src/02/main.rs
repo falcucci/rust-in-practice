@@ -89,4 +89,15 @@ mod tests {
     let result: Vec<u32> = vec![8, 9, 9, 9, 0, 0, 0, 1];
     assert_eq!(result, sum_reverse_linked_list(l1, l2));
   }
+
+  #[test]
+  fn sum_two_case_four() {
+    // Example 4:
+    // Input: l1 = [2,4,9], l2 = [5,6,4,9]
+    // Output: [7,0,4,0,1]
+    let l1: Vec<i32> = vec![2, 4, 9];
+    let l2: Vec<i32> = vec![5, 6, 4, 9];
+    let result: Vec<u32> = vec![7, 0, 4, 0, 1];
+    assert_eq!(result, sum_reverse_linked_list(l1, l2));
+  }
 } /* Tests */
