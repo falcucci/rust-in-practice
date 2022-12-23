@@ -21,9 +21,7 @@ pub fn find_the_middle(head: Vec<i32>) -> Vec<i32> {
 
 fn main() {
   let head: Vec<i32> = vec![1, 2, 3, 4, 5];
-  println!("input: {:?}", head);
-  let result: Vec<i32> = find_the_middle(head);
-  println!("output: {:?}", result);
+  find_the_middle(head);
 }
 
 #[cfg(test)]
